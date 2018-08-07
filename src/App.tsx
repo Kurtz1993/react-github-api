@@ -1,20 +1,42 @@
-import * as React from 'react';
-import './App.css';
+import React, { Component } from 'react';
 
-import logo from './logo.svg';
+import { LoginInformation } from './models/login-information';
+import LoginForm from './authentication/LoginForm';
+import RepositoriesList from './repositories/containers/RepositoriesList';
 
-class App extends React.Component {
-  public render() {
+class App extends Component {
+  state = {
+    isLoggedIn: false,
+  };
+
+  componentDidMount() {
+    if (sessionStorage.getItem('token')) {
+      this.setState({ isLoggedIn: true });
+    }
+  }
+
+  login = (credentials: LoginInformation) => {
+    const { username, password } = credentials;
+    const token = btoa(`${username}:${password}`);
+    sessionStorage.setItem('token', token);
+    sessionStorage.setItem('username', username);
+
+    this.setState({ isLoggedIn: true });
+  };
+
+  logout = () => {
+    sessionStorage.clear();
+    this.setState({ isLoggedIn: false });
+  };
+
+  render() {
+    const { isLoggedIn } = this.state;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <main className="app">
+        {!isLoggedIn && <LoginForm login={this.login} />}
+        {isLoggedIn && <RepositoriesList logout={this.logout} />}
+      </main>
     );
   }
 }
