@@ -1,5 +1,33 @@
+:root {
+  --active-colour: #1c3abd;
+  --inactive-colour: #cecece;
+  --thumbnail-size: 60px;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+.btn {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+}
+
+.btn--danger {
+  background-color: tomato;
+  color: white;
+  border: 1px solid tomato;
+}
+
+.thumbnail {
+  height: var(--thumbnail-size);
+  width: var(--thumbnail-size);
+  border: 1px solid var(--inactive-colour);
+}
+
+.thumbnail--round {
+  border-radius: 5%;
 }
