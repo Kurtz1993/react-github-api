@@ -1,0 +1,7 @@
+.counter {
+  display: inline-block;
+}
+
+.counter__icon {
+  margin-right: 5px;
+}
