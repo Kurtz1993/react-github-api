@@ -1,0 +1,57 @@
+@import '~font-awesome/css/font-awesome.css';
+
+.login {
+  text-align: center;
+}
+
+.form {
+  display: inline-block;
+  width: 420px;
+  border: 1px solid #dedede;
+  padding: 1rem 1.25rem;
+  text-align: center;
+}
+
+.form--shadow {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form__group {
+  padding: 0.6rem;
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.form__input {
+  width: 100%;
+  border-width: 0 0 1px 0;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+}
+
+.form__input:focus,
+.form__input:hover {
+  border-bottom-color: var(--active-colour);
+}
+
+.form__action {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+}
+
+.form__action:disabled {
+  background-color: rgba(206, 206, 206, 0.6);
+  border-color: var(--inactive-colour);
+  cursor: not-allowed;
+}
+
+.form__action--submit {
+  background-color: var(--active-colour);
+  color: white;
+  border: 1px solid var(--active-colour);
+}
