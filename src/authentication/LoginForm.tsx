@@ -1,17 +1,23 @@
-import React, { PureComponent, FormEvent, ChangeEvent } from 'react';
+import React, { PureComponent, FormEvent, ChangeEvent } from "react";
 
-import './LoginForm.css';
-import { LoginInformation } from '../models/login-information';
-import githubLogo from '../assets/github-logo.png';
+import "./LoginForm.css";
+import { LoginInformation } from "../models/login-information";
+import githubLogo from "../assets/github-logo.png";
 
 interface LoginFormProps {
   login: (credentials: LoginInformation) => void;
 }
 
-class LoginForm extends PureComponent<LoginFormProps, any> {
+interface LoginFormState {
+  username: string;
+  password: string;
+  [x: string]: string;
+}
+
+class LoginForm extends PureComponent<LoginFormProps, LoginFormState> {
   state = {
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   };
 
   usernameRef = React.createRef<HTMLInputElement>();
@@ -24,7 +30,7 @@ class LoginForm extends PureComponent<LoginFormProps, any> {
 
     this.props.login({ username, password });
 
-    this.setState({ username: '', password: '' });
+    this.setState({ username: "", password: "" });
   };
 
   inputChange = (e: ChangeEvent<HTMLInputElement>) => {
