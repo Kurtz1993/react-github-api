@@ -1,10 +1,10 @@
-import React, { SFC } from 'react';
-import { RepositoryCounter } from '../../models/repository-counter.enum';
+import React, { SFC } from "react";
+import { RepositoryCounter } from "../../models/repository-counter.enum";
 
-import './Counter.css';
+import "./Counter.css";
 
 interface CounterProps {
-  type: RepositoryCounter;
+  type?: RepositoryCounter;
   count: number;
 }
 
@@ -12,16 +12,16 @@ const Counter: SFC<CounterProps> = ({ type, count }) => {
   let icon: string;
   switch (type) {
     case RepositoryCounter.Stars:
-      icon = 'fa-star';
+      icon = "fa-star";
       break;
     case RepositoryCounter.Forks:
-      icon = 'fa-code-fork';
+      icon = "fa-code-fork";
       break;
     case RepositoryCounter.Watchers:
-      icon = 'fa-eye';
+      icon = "fa-eye";
       break;
     default:
-      icon = 'fa-exclamation-circle';
+      icon = "fa-exclamation-circle";
       break;
   }
 
